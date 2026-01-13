@@ -1,0 +1,3 @@
+﻿  Game.cpp
+c:\users\mohsi\onedrive\documents\github\elk-tech\week1\assessment#1\game\game\game.cpp(9): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Game.vcxproj -> C:\Users\mohsi\OneDrive\Documents\GitHub\ELK-TECH\Week1\Assessment#1\Game\Debug\Game.exe
