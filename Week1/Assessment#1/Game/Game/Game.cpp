@@ -4,81 +4,95 @@
 #include <ctime>
 using namespace std;
 
-int main()
+void ShowMenu()
 {
-	srand(time(0));
-	int win = 0;
-	int loss = 0;
-	float win_percentage = 0;
-	vector<int> t_guess;
-	int total_guess = 0;
-	int t_games = 0;
-	float AGPG = 0;
-	int choose = 0;
-
-	cout << "=============GUESS THE NUMBER=============" << endl;
+	cout << "\n=============GUESS THE NUMBER=============" << endl;
 	cout << "1: Play The GAME" << endl;
 	cout << "2: View Session Stats:" << endl;
 	cout << "3: Exit" << endl;
-	cin >> choose;
+	cout << "Choose an option: ";
+}
 
-	while (choose == 1 || choose == 2)
+int main()
+{
+	srand(static_cast<unsigned int>(time(0)));
+
+	int totalWins = 0;
+	int totalLosses = 0;
+	float winPercentage = 0.0f;
+	vector<int> guessesPerGame;
+	int totalGuesses = 0;
+	int totalGames = 0;
+	float averageGuessesPerGame = 0.0f;
+	int menuChoice = 0;
+
+	ShowMenu();
+	cin >> menuChoice;
+
+	while (menuChoice == 1 || menuChoice == 2)
 	{
-		if (choose == 1)
+		switch (menuChoice)
 		{
-			int guess = 0;
-			int n_guess = 0;
-			vector<int>p_guess;
-			cout << "==========Game STARTS===============" << endl;
-			int num = rand() % 100 + 1;
-			cout << num;
-			for (int i = 1; i <= 5; i++)
+		case 1:
+		{
+			int currentGuess = 0;
+			vector<int> previousGuesses;
+
+			cout << "========== Game STARTS ===========" << endl;
+
+			int secretNumber = rand() % 100 + 1;
+
+			for (int attempt = 1; attempt <= 5; attempt++)
 			{
-				cout << "Guess The Number from 1 to 100 :: ";
-				if (!(cin >> guess))
+				cout << "Guess the number from 1 to 100: ";
+
+				if (!(cin >> currentGuess))
 				{
-					cout << "Invalid input! Numbers only" << endl;
+					cout << "Invalid input! Numbers only." << endl;
 					cin.clear();
 					cin.ignore(1000, '\n');
-					i--;
+					attempt--;
 					continue;
 				}
-				if (guess <= 100 && guess >= 1)
+
+				if (currentGuess >= 1 && currentGuess <= 100)
 				{
 					bool repeated = false;
-					for (int g : p_guess)
+					for (int previous : previousGuesses)
 					{
-						if (g == guess)
+						if (previous == currentGuess)
 						{
 							repeated = true;
 							break;
 						}
 					}
+
 					if (repeated)
 					{
-						cout << "You already guessed this number"<<endl;
-						i--;
+						cout << "You already guessed this number." << endl;
+						attempt--;
 						continue;
 					}
-					p_guess.push_back(guess);
-					int diff = guess - num;
 
-					if (diff == 0)
+					previousGuesses.push_back(currentGuess);
+					int difference = currentGuess - secretNumber;
+
+					if (difference == 0)
 					{
-						cout << "You Won in Attempt #" << i << endl;
-						win++;
-						t_guess.push_back(i);
+						cout << "You won in attempt #" << attempt << "!" << endl;
+						totalWins++;
+						guessesPerGame.push_back(attempt);
 						break;
 					}
 
-					if (abs(diff) >= 10)
+					if (abs(difference) >= 10)
 					{
-						if (diff > 0)
+						if (difference > 0)
 							cout << "Too High!" << endl;
 						else
 							cout << "Too Low!" << endl;
 					}
-					else if (abs(diff) >= 5)
+					else if (abs(difference) >= 5)
 					{
 						cout << "Close!" << endl;
 					}
@@ -87,60 +101,61 @@ int main()
 						cout << "Very Close!" << endl;
 					}
 
-					if (i == 5)
+					if (attempt == 5)
 					{
-						cout << "You LOST! The Number was :: " << num << endl;
-						loss++;
-						t_guess.push_back(5);
+						cout << "You LOST! The number was: " << secretNumber << endl;
+						totalLosses++;
+						guessesPerGame.push_back(5);
 					}
 				}
-				else 
+				else
 				{
-					cout << "Invalid Input" << endl;
-					i--;
+					cout << "Invalid input! Number must be between 1 and 100." << endl;
+					attempt--;
 				}
 			}
 
-			t_games++;
+			totalGames++;
 
-			cout << "\n=============GUESS THE NUMBER=============" << endl;
-			cout << "1: Play The GAME" << endl;
-			cout << "2: View Session Stats:" << endl;
-			cout << "3: Exit" << endl;
-			cin >> choose;
+			ShowMenu();
+			cin >> menuChoice;
+			break;
 		}
-
-		if (choose == 2)
+		case 2:
 		{
-			cout << "\nTotal Games Played :: " << t_games << endl;
-			cout << "Total Wins Games :: " << win << endl;
-			cout << "Total Loss Games :: " << loss << endl;
+			cout << "\nTotal games played: " << totalGames << endl;
+			cout << "Total games won: " << totalWins << endl;
+			cout << "Total games lost: " << totalLosses << endl;
 
-			if (t_games > 0)
+			if (totalGames > 0)
 			{
-				win_percentage = (float)win / (win + loss) * 100;
-				cout << "Win Percentage :: " << win_percentage << "%" << endl;
+				winPercentage = (static_cast<float>(totalWins) / totalGames) * 100.0f;
+				cout << "Win percentage: " << winPercentage << "%" << endl;
 
-				cout << "\n========Total Guess Made All over The games ==========" << endl;
-				total_guess = 0;
+				cout << "\n======== Total guesses made across all games ==========" << endl;
+				totalGuesses = 0;
 
-				for (int j = 0; j < t_games; j++)
+				for (int gameIndex = 0; gameIndex < totalGames; gameIndex++)
 				{
-					cout << "Game # " << j + 1 << " Total Guess :: " << t_guess[j] << endl;
-					total_guess += t_guess[j];
+					cout << "Game #" << gameIndex + 1 << " - Total guesses: " << guessesPerGame[gameIndex] << endl;
+					totalGuesses += guessesPerGame[gameIndex];
 				}
 
-				AGPG = (float)total_guess / t_games;
-				cout << "\nAverage Guesses per Game :: " << AGPG << endl;
+				averageGuessesPerGame = static_cast<float>(totalGuesses) / totalGames;
+				cout << "\nAverage guesses per game: " << averageGuessesPerGame << endl;
 			}
 
-			cout << "\n=============GUESS THE NUMBER=============" << endl;
-			cout << "1: Play The GAME" << endl;
-			cout << "2: View Session Stats:" << endl;
-			cout << "3: Exit" << endl;
-			cin >> choose;
+			ShowMenu();
+			cin >> menuChoice;
+			break;
+		}
+		default:
+			// Any other input breaks out of the loop and ends the game
+			menuChoice = 3;
+			break;
 		}
 	}
+
 	system("pause");
 	return 0;
 }
