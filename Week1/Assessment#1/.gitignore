@@ -1,0 +1,19 @@
+# Build output
+Debug/
+Release/
+x64/
+x86/
+
+# Visual Studio
+.vs/
+*.user
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.log
+*.tlog/
+*.sqlite
+
+
