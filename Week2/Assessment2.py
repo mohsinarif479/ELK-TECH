@@ -1,4 +1,4 @@
-# i prefer to you 
+# i prefer to use merge sort and binary search for this assessment
 array1=[]
 count=int(input("Enter number of elements: "))
 for i in range(count):
