@@ -5,28 +5,58 @@ const port = 3000;
 
 app.use(express.json());
 
+let users = [
+    { id: 1, name: 'Mohsin', email: 'mohsin@example.com' },
+    { id: 2, name: 'Arif', email: 'arif@example.com' }
+];
+
 // Define a route for GET requests
 app.get('/users', (req, res) => {
-    res.json({ message: 'Returning list of users' });
+    res.json(users);
+});
+
+app.get('/users/:id', (req, res) => {
+    const userId = parseInt(req.params.id);
+    const user = users.find(user => user.id === userId);
+    if (user) {
+        res.json(user);
+    } else {
+        res.status(404).json({ message: 'User not found' });
+    }
 });
 
 // Define a route for POST requests
 app.post('/users', (req, res) => {
     const newUser = req.body;
+    newUser.id = users.length + 1;
+    users.push(newUser);
     res.json({ message: 'User created', user: newUser });
 });
 
+
+
 // Define a route for PUT requests
 app.put('/users/:id', (req, res) => {
-    const userId = req.params.id;
-    const updatedUser = req.body;
-    res.json({ message: `User with ID ${userId} updated`, updatedUser });
+    const userId = parseInt(req.params.id);
+    const userIndex = users.findIndex(user => user.id === userId);
+    if (userIndex !== -1) {
+        users[userIndex] = { ...users[userIndex], ...req.body };
+        res.json({ message: `User with ID ${userId} updated`, user: users[userIndex] });
+    } else {
+        res.status(404).json({ message: 'User not found' });
+    }
 });
 
 // Define a route for DELETE requests
 app.delete('/users/:id', (req, res) => {
-    const userId = req.params.id;
-    res.json({ message: `User with ID ${userId} deleted` });
+    const userId = parseInt(req.params.id);
+    const userIndex = users.findIndex(user => user.id === userId);
+    if (userIndex !== -1) {
+        users.splice(userIndex, 1);
+        res.json({ message: `User with ID ${userId} deleted` });
+    } else {
+        res.status(404).json({ message: 'User not found' });
+    }
 });
 
 // Start the server
