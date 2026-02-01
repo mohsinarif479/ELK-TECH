@@ -10,7 +10,6 @@ let users = [
     { id: 2, name: 'Arif', email: 'arif@example.com' }
 ];
 
-// Define a route for GET requests
 app.get('/users', (req, res) => {
     res.json(users);
 });
@@ -25,7 +24,6 @@ app.get('/users/:id', (req, res) => {
     }
 });
 
-// Define a route for POST requests
 app.post('/users', (req, res) => {
     const newUser = req.body;
     newUser.id = users.length + 1;
@@ -35,7 +33,6 @@ app.post('/users', (req, res) => {
 
 
 
-// Define a route for PUT requests
 app.put('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id);
     const userIndex = users.findIndex(user => user.id === userId);
@@ -47,7 +44,6 @@ app.put('/users/:id', (req, res) => {
     }
 });
 
-// Define a route for DELETE requests
 app.delete('/users/:id', (req, res) => {
     const userId = parseInt(req.params.id);
     const userIndex = users.findIndex(user => user.id === userId);
@@ -59,7 +55,6 @@ app.delete('/users/:id', (req, res) => {
     }
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
