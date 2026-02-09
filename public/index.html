@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auth + Users CRUD</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">ELK-TECH Week 4</p>
+          <h1>Login, Signup, and Users CRUD</h1>
+          <p class="sub">Session + JWT auth with email validation.</p>
+        </div>
+        <div class="status">
+          <div>
+            <span class="label">Auth</span>
+            <span id="authState" class="value">Signed out</span>
+          </div>
+          <div>
+            <span class="label">User ID</span>
+            <span id="authId" class="value">-</span>
+          </div>
+          <div>
+            <span class="label">Email</span>
+            <span id="authEmail" class="value">-</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card">
+          <h2>Signup</h2>
+          <form id="signupForm">
+            <label>
+              Email
+              <input type="email" name="email" required placeholder="you@example.com" />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" required minlength="8" placeholder="At least 8 characters" />
+            </label>
+            <button type="submit">Create account</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Login</h2>
+          <form id="loginForm">
+            <label>
+              Email
+              <input type="email" name="email" required placeholder="you@example.com" />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" required minlength="8" placeholder="Your password" />
+            </label>
+            <button type="submit">Sign in</button>
+          </form>
+          <button id="logoutBtn" class="ghost">Logout</button>
+        </section>
+
+        <section class="card">
+          <h2>Update My Account</h2>
+          <form id="updateForm">
+            <label>
+              New email
+              <input type="email" name="email" placeholder="new@example.com" />
+            </label>
+            <label>
+              New password
+              <input type="password" name="password" minlength="8" placeholder="At least 8 characters" />
+            </label>
+            <button type="submit">Update</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Users</h2>
+          <div class="row">
+            <button id="loadUsersBtn">Load users</button>
+            <button id="countUsersBtn" class="ghost">Total users</button>
+          </div>
+          <p class="muted">You can only update or delete your own account.</p>
+          <ul id="usersList" class="list"></ul>
+          <p id="usersCount" class="count">Total: -</p>
+        </section>
+
+        <section class="card wide">
+          <h2>Response Log</h2>
+          <pre id="log" class="log"></pre>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
