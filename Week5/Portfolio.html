@@ -4,8 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="stylesheet" href="Portfoloio.css">
 </head>
 <body>
-    <h1>Mohsin Arif</h1>
+    <header>
+        <nav> 
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+                <li><a href="#services">Our Services</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <img src="Bg.png" alt="Portfolio background">
+            <div class="hero-text">
+                <h2 id="red">I am <span>Mohsin Arif</span></h2>
+                <h1>MERN STACK DEVELOPER</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="services" class="services-section">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <h3>Web Development</h3>
+                    <p>Fast and responsive websites with modern frontend and backend stacks.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Mobile App Development</h3>
+                    <p>Cross-platform mobile apps focused on performance and clean user experience.</p>
+                </article>
+                <article class="service-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Simple and effective design systems that improve usability and engagement.</p>
+                </article>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>
+                I am a MERN stack developer focused on building responsive web applications
+                with clean UI and scalable backend architecture. I enjoy turning ideas into
+                practical digital products that solve real problems.
+            </p>
+            <p>
+                My core skills include MongoDB, Express.js, React, and Node.js, with strong
+                interest in performance optimization, API design, and modern frontend
+                development practices.
+            </p>
+        </section>
+        <section id="experience">
+            <h2>Experience</h2>
+            <p>
+                Built and maintained full-stack applications using the MERN stack, including
+                REST API integration, authentication flows, and responsive UI components.
+            </p>
+            <p>
+                Collaborated on debugging, performance improvements, and deployment workflows
+                to deliver reliable and scalable project outcomes.
+            </p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul class="content-list">
+                <li>
+                    <strong>E-commerce App:</strong> Product listing, cart, and secure checkout
+                    with Node.js and MongoDB backend.
+                </li>
+                <li>
+                    <strong>Portfolio Website:</strong> Responsive personal portfolio with
+                    service cards and section-based navigation.
+                </li>
+                <li>
+                    <strong>Task Manager:</strong> CRUD-based productivity app with React UI
+                    and Express API.
+                </li>
+            </ul>
+        </section>
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <ul class="contact-list">
+                <li>Email: mohsinarif479@example.com</li>
+                <li>Phone: +92 (308) 048-5615</li>
+                <li>Location: Pakistan</li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
