@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Home</title>
+    <link rel="stylesheet" href="Portfoloio.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <h1 class="logo">MOHSIN ARIF</h1>
+            <ul class="nav-list">
+                <li><a href="Portfolio.html" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+                <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <img src="Bg.png" alt="Developer workspace background">
+            <div class="hero-text">
+                <p class="subtitle">Dashboard / Home</p>
+                <h2>Hello, I am <span>Mohsin Arif</span></h2>
+                <h3>Full Stack Developer</h3>
+                <p class="hero-description">
+                    MERN | JavaScript | Python
+                </p>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <h2>Professional Summary</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <h3>Profile</h3>
+                    <p>
+                        Full Stack Developer with nearly one year of professional and freelance experience developing
+                        scalable, production-ready web applications.
+                    </p>
+                </article>
+                <article class="service-card">
+                    <h3>Tech Stack</h3>
+                    <p>
+                        JavaScript, React, Node.js, Next.js, Java, MongoDB, SQL, Git, and Python across complete
+                        software development lifecycle workflows.
+                    </p>
+                </article>
+                <article class="service-card">
+                    <h3>Impact</h3>
+                    <p>
+                        Contributed to 10 industry-level applications by writing maintainable code, improving
+                        performance, and resolving production issues.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="featured-projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <p class="project-type">Web App</p>
+                    <h3>Online Ticket Reservation System</h3>
+                    <p>
+                        Real-time booking and seat management system with secure Stripe payments for
+                        seamless transactions.
+                    </p>
+                    <div class="project-tags">
+                        <span>MERN</span>
+                        <span>Stripe</span>
+                        <span>Real-Time</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <p class="project-type">AI / Security</p>
+                    <h3>Phishing URL Detection System</h3>
+                    <p>
+                        Machine learning powered detection pipeline that classifies malicious URLs in real-time.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Cybersecurity</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <p class="project-type">Automation</p>
+                    <h3>Freelancer Auto Bidder</h3>
+                    <p>
+                        Automated bidding workflow with scraping logic and a React dashboard to monitor bid activity.
+                    </p>
+                    <div class="project-tags">
+                        <span>JavaScript</span>
+                        <span>React</span>
+                        <span>Web Scraping</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Mohsin Arif. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
