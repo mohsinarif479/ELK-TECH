@@ -1,77 +1,98 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #111;
+    font-family: "Poppins", sans-serif;
+    background: #111;
     color: #fff;
+    line-height: 1.6;
 }
 
-nav {
-    background-color: black;
-    color: white;
-    padding: 0 20px;
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    background: #000;
+    color: #fff;
+    padding: 0 24px;
     width: 100%;
-    height: 60px;
+    min-height: 64px;
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 16px;
 }
 
-nav ul {
+.logo {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    color: aquamarine;
+}
+
+.nav-list {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 20px;
+    gap: 18px;
 
     margin: 0;
     padding: 0;
 }
 
-nav ul li a {
+.nav-link {
     text-decoration: none;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: medium;
+    color: #fff;
+    font-size: 0.95rem;
     transition: 0.3s ease;
+    padding: 6px 8px;
+    border-radius: 6px;
 }
 
-nav ul li a:hover {
+.nav-link:hover,
+.nav-link.active {
+    background: #1f1f1f;
     color: aquamarine;
 }
 
-#red {
-    color: red;
+main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 26px 20px 48px;
 }
 
-h2 span {
-    color: aquamarine;
+section {
+    padding: 24px 0;
+    border-bottom: 1px solid #2a2a2a;
 }
 
-header h2,
-header h1 {
-    text-align: center;
-    margin-top: 0;
+section h2 {
+    margin-bottom: 12px;
 }
 
-header h1 {
-    margin-bottom: 0;
+section p {
+    color: #d4d4d4;
+    margin-top: 8px;
 }
 
 .hero {
     position: relative;
-    width: 100%;
+    border: none;
+    padding-top: 0;
 }
 
 .hero img {
     width: 100%;
-    height: 420px;
+    height: 360px;
     object-fit: cover;
     display: block;
+    border-radius: 14px;
 }
 
 .hero::after {
@@ -79,6 +100,7 @@ header h1 {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
 }
 
 .hero-text {
@@ -91,28 +113,31 @@ header h1 {
     align-items: center;
     gap: 12px;
     padding: 20px;
+    text-align: center;
 }
 
-.hero-text h1 {
-    color: #fff;
+.subtitle {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: aquamarine;
+    font-size: 0.85rem;
 }
 
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px 40px;
+.hero-text h2 span {
+    color: aquamarine;
 }
 
-section {
-    min-height: 120px;
-    padding: 20px 0;
-    border-bottom: 1px solid #2a2a2a;
+.hero-text h3 {
+    font-size: 1.8rem;
 }
 
-section p {
-    margin-top: 12px;
-    color: #d4d4d4;
-    line-height: 1.6;
+.hero-description {
+    max-width: 640px;
+    color: #e5e5e5;
+}
+
+.page-header {
+    padding-top: 10px;
 }
 
 .content-list {
@@ -159,6 +184,128 @@ section p {
     line-height: 1.5;
 }
 
+.featured-projects h2 {
+    margin-bottom: 16px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.project-card {
+    background: linear-gradient(160deg, #1a1a1a 0%, #151515 100%);
+    border: 1px solid #2e2e2e;
+    border-radius: 14px;
+    padding: 18px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: aquamarine;
+    box-shadow: 0 10px 24px rgba(127, 255, 212, 0.12);
+}
+
+.project-type {
+    display: inline-block;
+    background: rgba(127, 255, 212, 0.12);
+    color: aquamarine;
+    border: 1px solid rgba(127, 255, 212, 0.4);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.project-card h3 {
+    margin: 12px 0 8px;
+    font-size: 1.05rem;
+}
+
+.project-card p {
+    color: #d4d4d4;
+}
+
+.project-tags {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    background: #121212;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 4px 9px;
+    font-size: 0.8rem;
+    color: #cfd8d6;
+}
+
+.form-section {
+    border-bottom: 1px solid #2a2a2a;
+}
+
+form {
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: 500;
+}
+
+input,
+textarea {
+    background: #1a1a1a;
+    color: #fff;
+    border: 1px solid #2e2e2e;
+    border-radius: 8px;
+    padding: 11px 12px;
+    font: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: aquamarine;
+}
+
+button {
+    margin-top: 6px;
+    background: aquamarine;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.form-message {
+    min-height: 24px;
+    margin-top: 8px;
+    color: #d4d4d4;
+}
+
+.form-message.error {
+    color: #ff7070;
+}
+
+.form-message.success {
+    color: aquamarine;
+}
+
 .contact-section {
     display: flex;
     flex-direction: column;
@@ -184,6 +331,38 @@ section p {
     color: #d4d4d4;
 }
 
-section h2{
-    text-align: left;
+footer {
+    border-top: 1px solid #2a2a2a;
+    padding: 20px;
+    text-align: center;
+    color: #bdbdbd;
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+    }
+
+    .hero img {
+        height: 300px;
+    }
+
+    .hero-text h2 {
+        font-size: 1.4rem;
+    }
+
+    .hero-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .contact-list {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
