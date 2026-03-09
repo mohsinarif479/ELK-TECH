@@ -1,0 +1,95 @@
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  background: #f6f8fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.site-header {
+  padding: 1rem;
+  background: #162238;
+  color: #fff;
+}
+
+.site-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+nav {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #c9d8f5;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+nav a.active {
+  background: #fff;
+  color: #162238;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  display: grid;
+  gap: 0.5rem;
+  border: 1px solid #d7dfed;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.75rem 0;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  padding: 0.5rem;
+}
+
+button {
+  border: 1px solid #234070;
+  background: #234070;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-box {
+  margin-top: 0.75rem;
+  border: 1px solid #c42a2a;
+  background: #ffeaea;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.field-error {
+  color: #b11f1f;
+  font-size: 0.9rem;
+}
